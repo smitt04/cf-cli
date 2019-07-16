@@ -1,10 +1,10 @@
-FROM alpine:3.7
+FROM alpine:3.10
 
-ENV CF_CLI_VERSION "6.35.2"
+ENV CF_CLI_VERSION "6.46.0"
 ENV CF_BGD_VERSION "1.4.0"
-ENV CF_BGD_CHECKSUM "c74995ae0ba3ec9eded9c2a555e5984ba536d314cf9dc30013c872eb6b9d76b6"
+ENV CF_BGD_CHECKSUM "a2901bf17a030c8f58b6622c855f775dfebd3f239dba1737b4bc2de18307db03"
 
-RUN apk add --update curl bash libc6-compat \
+RUN apk add --update curl bash make libc6-compat \
     && rm -rf /var/cache/apk/*
 
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=${CF_CLI_VERSION}" | tar -zx -C /usr/local/bin
